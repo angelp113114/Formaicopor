@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>FORMACOPOR SAS</title>
+</head>
+<body>
+   <header>
+        <div class="container">
+            <div class="top-bar">
+                <img src="LOGOAZUL.png" alt="logo azul y dorado" class="logo1">
+                
+                <nav>
+                    <ul>
+                        <li><a href="index.html">INICIO</a></li>
+                        <li><a href="productos.html">PRODUCTOS</a></li>
+                        <li><a href="quienes_somos.html">QUIENES SOMOS</a></li>
+                        <li><a href="contacto_sedes.html">CONTACTO Y SEDES</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="titutloF">
+        <h1>FORMAICOPOR</h1>
+        <h2>SERVICIO CON CALIDAD</h2>
+    </div>
+    
+          
+
+    <section class="products container">
+        <div class="caseton-icopor1">
+            <div class="product-title-ci">Caseton <br> en icopor</div>
+        </div>
+        <div class="caseton-guadua1">
+            <div class="product-title-cg">Caseton <br>en guadua</div>    
+        </div>
+        <div class="caseton-lona1">
+            <div class="product-title-cl">Caseton <br> en lona</div>
+        </div>
+    </section>
+       
+    <div class="mas-productos-container">
+        <a href="productos.html" class="mas-productos">
+            <h4>Conoce más<br>sobre nuestros productos</h4>
+        </a>
+    </div>
+
+    <div class="ventajas-titulo">
+        <h1>Ventajas de nuestros productos</h1>
+    </div>
+    
+    <div class="ventajas-grid">
+        <div class="ventaja1">
+            <h2>Bajo costo</h2>
+            <p>Resulta más económico porque pueden reutilizarse varias veces.</p>
+        </div>
+        <div class="ventaja2">
+            <h2>Fabricados sobre planos</h2>
+            <p>Se adaptan exactamente a las necesidades de cada obra.</p>
+        </div>
+        <div class="ventaja3">
+            <h2>Elevada resistencia</h2>
+            <p>Ofrecen una gran solidez estructural, lo que garantiza mayor seguridad y durabilidad en la construcción.</p>
+        </div>
+        <div class="ventaja4">
+            <h2>Producto respetuoso con el ambiente</h2>
+            <p>Su fabricación y uso generan menos residuos y ayudan a reducir el impacto ambiental en la construcción.</p>
+        </div>
+        <div class="ventaja5">
+            <h2>Instalación fácil y rápida</h2>
+            <p>Su diseño liviano y práctico permite montarlos sin esfuerzo, acelerando el progreso de la obra.</p>
+        </div>
+    </div>
+
+    <form action="https://formspree.io/f/mldqlred" method="post" autocomplete="off">
+        <h1>¿ QUE NECESITAS ?</h1>
+        
+        <div class="form-group">
+            <input type="text" name="nombre" placeholder="Nombre y Apellidos" required>
+        </div>
+        
+        <div class="form-group">
+            <input type="email" name="correo" placeholder="Correo Electrónico" required>
+        </div>
+        
+        <div class="form-group">
+            <input type="tel" name="telefono" placeholder="Celular o teléfono" required>
+        </div>
+        
+        <div class="form-group">
+            <textarea name="descripcion" placeholder="Cuéntanos qué podemos ofrecerte" required></textarea>
+        </div>
+        
+        <div class="boton">
+            <button type="submit">Enviar</button>
+        </div>
+        
+        <p>(Enviar una vez)</p>
+    </form>
+
+    <a href="https://api.whatsapp.com/send?phone=573213899731" class="btn-wasa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section logo-section">
+                <img src="LOGOAZUL.png" alt="logo azul" class="logo2">
+                <div class="eslogan-footer">
+                    <h4>Servicio con calidad</h4>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <div class="contact-info">
+                    <h4>Teléfono: (57) 321 389 9731</h4>
+                    <h4>Correo: formaicopor.jo@hotmail.com</h4>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Ubicación</h3>
+                <div class="location-info">
+                    <h4>Bogotá, Colombia</h4>
+                    <h4>Calle 58 Sur #97 b 34</h4>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // JavaScript para navegación responsiva
+        document.addEventListener('DOMContentLoaded', function() {
+            // Ajustar navegación en pantallas pequeñas
+            function adjustNavigation() {
+                const nav = document.querySelector('nav ul');
+                const navLinks = document.querySelectorAll('nav a');
+                
+                if (window.innerWidth < 600) {
+                    // Para móviles: menú vertical
+                    if (nav) {
+                        nav.style.flexDirection = 'column';
+                        nav.style.width = '100%';
+                    }
+                    navLinks.forEach(link => {
+                        link.style.display = 'block';
+                        link.style.padding = '1rem';
+                        link.style.textAlign = 'center';
+                    });
+                } else {
+                    // Para escritorio: menú horizontal
+                    if (nav) {
+                        nav.style.flexDirection = 'row';
+                        nav.style.width = 'auto';
+                    }
+                    navLinks.forEach(link => {
+                        link.style.display = 'inline-block';
+                        link.style.padding = '0.5rem 0.8rem';
+                    });
+                }
+            }
+            
+            // Ejecutar al cargar y al redimensionar
+            adjustNavigation();
+            window.addEventListener('resize', adjustNavigation);
+        });
+    </script>
+</body>
+</html>
