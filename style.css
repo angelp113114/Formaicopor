@@ -77,12 +77,17 @@ nav a:hover {
     text-align: center;
     font-size: clamp(1.8rem, 5vw, 2.5rem);
     padding: 0 1rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
 }
 
 .titutloF h2 {
     font-size: clamp(1.2rem, 3vw, 1.5rem);
     margin-top: 0.5rem;
     color: #333;
+}
+.logo_inicio{
+    width: 350px; ;
+    height: auto;
 }
 
 .container1 {
@@ -130,7 +135,7 @@ nav a:hover {
 }
 
 .caseton-guadua1 {
-    background-image: url('GUADUAINICIO.jpg');
+    background-image: url('GUADUAINICIO.png');
 }
 
 .caseton-lona1 {
