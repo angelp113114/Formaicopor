@@ -123,22 +123,11 @@ nav a:hover {
     font-size:smaller;
 }
 .logo_inicio {
-    width: clamp(200px, 35vw, 350px);
-    height: auto;
-    margin-left: 40rem;
-    margin-right: auto;
-    margin-top: 3rem;
-    display: block;
+    display: none;
 }
 
 .foto_index {
-    width: clamp(100px, 30vw, 300px);
-    height: auto;
-    transform: rotate(-30deg);
-    margin: 1rem auto;
-    display: block;
-    margin-left: -40%;
-    margin-top: -40rem;
+    display: none;
 }
 .container1 {
     width: 100%;
@@ -797,6 +786,8 @@ footer {
     }
 }
 
+
+
 /* Media Query para pantallas muy grandes */
 @media (min-width: 1200px) {
     .container {
@@ -807,5 +798,26 @@ footer {
         grid-template-columns: repeat(3, 1fr);
         max-width: 1200px;
         margin: 0 auto 3rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .logo_inicio {
+        display: block;
+        width: clamp(200px, 35vw, 350px);
+        height: auto;
+        margin-left: 40rem;
+        margin-right: auto;
+        margin-top: 3rem;
+    }
+    
+    .foto_index {
+        display: block;
+        width: clamp(100px, 30vw, 300px);
+        height: auto;
+        transform: rotate(-30deg);
+        margin: 1rem auto;
+        margin-left: -40%;
+        margin-top: -40rem;
     }
 }
