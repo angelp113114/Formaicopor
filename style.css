@@ -112,6 +112,7 @@ nav a:hover {
     padding: 0 1rem;
     font-size: clamp(1.2rem, 3vw, 1.5rem);
     margin-top: 10%;
+;
 
 }
 
@@ -124,19 +125,20 @@ nav a:hover {
 .logo_inicio {
     width: clamp(200px, 35vw, 350px);
     height: auto;
-    margin-left: auto;
+    margin-left: 40rem;
     margin-right: auto;
-    margin-top: 1rem;
+    margin-top: 3rem;
     display: block;
 }
 
 .foto_index {
-    width: clamp(100px, 30vw, 200px);
+    width: clamp(100px, 30vw, 300px);
     height: auto;
-    transform: rotate(-15deg);
+    transform: rotate(-30deg);
     margin: 1rem auto;
     display: block;
-    max-width: 100%;
+    margin-left: -40%;
+    margin-top: -40rem;
 }
 .container1 {
     width: 100%;
