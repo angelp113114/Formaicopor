@@ -4,11 +4,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif 
 }
 
 body {
-    background-color: #ffffff;
+    background-image: url(Fondo_bac.avif);
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
@@ -19,10 +19,11 @@ body {
 header {
     background-color: #004AAD;
     padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 8px rgba(0, 195, 255, 0.822);
     position: sticky;
     z-index: 1000;
     width: 100%;
+    top: 0;
 }
 
 .container {
@@ -41,7 +42,8 @@ header {
 }
 
 .logo1 {
-    width: clamp(80px, 15vw, 120px);
+    margin-left: -10rem;   
+    width: clamp(190px, 15vw, 120px);
     height: auto;
 }
 
@@ -50,7 +52,7 @@ nav ul {
     display: flex;
     list-style: none;
     flex-wrap: wrap;
-    gap: clamp(0.5rem, 2vw, 1rem);
+    gap: clamp(5rem, 2vw, 1rem);
     justify-content: center;
 }
 
@@ -70,6 +72,36 @@ nav a:hover {
     color: #eebe2f;
 }
 
+.selec_ini{
+    color: #eebe2f;
+    text-decoration: underline;
+
+}
+
+.selec_pro{
+    color: #eebe2f;
+    text-decoration: underline;
+}
+
+.selec_gale{
+    color: #eebe2f;
+    text-decoration: underline;
+    
+}
+
+.selec_qs{
+    color: #eebe2f;
+    text-decoration: underline;
+}
+.selec_contac{
+    color: #eebe2f;
+    text-decoration: underline;
+}
+
+
+
+
+
 /* SECCIÓN PRINCIPAL INICIO */
 .titutloF {
     margin: 3rem 0 2rem;
@@ -78,18 +110,34 @@ nav a:hover {
     font-size: clamp(1.8rem, 5vw, 2.5rem);
     padding: 0 1rem;
     font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin-top: 10%;
+
 }
 
 .titutloF h2 {
     font-size: clamp(1.2rem, 3vw, 1.5rem);
-    margin-top: 0.5rem;
+    margin-top: -0.5rem;
     color: #333;
+    font-size:smaller;
 }
 .logo_inicio{
-    width: 350px; ;
+    width: 350px; 
     height: auto;
+    margin-left: 67%;
+    margin-top: -20%;
+    transform: scale(0.88);
 }
 
+.foto_index{
+    width: 50px;
+    height: auto;
+    transform: scale(0.6);
+    margin-top: -12%;
+    margin-left: -11%;
+    rotate: calc(-40deg);
+    display: block;
+    
+}
 .container1 {
     width: 100%;
     display: flex;
@@ -127,11 +175,17 @@ nav a:hover {
     position: relative;
     overflow: hidden;
     transition: transform 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgb(0, 0, 0);
 }
 
+
+.dibujo-icopor{
+    text-align: center;
+}
+
+
 .caseton-icopor1 {
-    background-image: url('ICOPORINICIO.jpg');
+    background-image: url('ICOPORINICIO.jpeg');
 }
 
 .caseton-guadua1 {
@@ -139,7 +193,7 @@ nav a:hover {
 }
 
 .caseton-lona1 {
-    background-image: url('LONAINICIO.jpg');
+    background-image: url('LONAINICIO.jpeg');
 }
 
 .product-title-ci, 
@@ -300,9 +354,11 @@ button:hover {
 /* FOOTER */
 footer {
     background-color: #004AAD;
-    color: white;
+   box-shadow: 0 -3px 8px rgba(0, 195, 255, 0.877);
+    color: #eebe2f;
     padding: 3rem 0;
     margin-top: 4rem;
+     
 }
 
 .footer-container {
@@ -322,14 +378,14 @@ footer {
 }
 
 .logo2 {
-    width: clamp(80px, 15vw, 100px);
+    width: clamp(190px, 15vw, 100px);
     height: auto;
     margin-bottom: 1rem;
 }
 
 .footer-section h3 {
     margin-bottom: 1rem;
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: clamp(2rem, 2vw, 1.2rem);
     border-bottom: 2px solid #eebe2f;
     padding-bottom: 0.5rem;
     width: 100%;
@@ -338,7 +394,7 @@ footer {
 .footer-section h4 {
     margin-bottom: 0.5rem;
     font-weight: normal;
-    font-size: clamp(0.85rem, 1.8vw, 1rem);
+    font-size: clamp(1.5rem, 1.8vw, 1rem);
 }
 
 /* BOTÓN WHATSAPP */
@@ -617,6 +673,8 @@ footer {
     }
 }
 
+
+
 /* ESTILOS ESPECÍFICOS PARA ELEMENTOS PEQUEÑOS */
 @media (max-width: 400px) {
     .products {
@@ -632,3 +690,4 @@ footer {
         flex-direction: column;
     }
 }
+
