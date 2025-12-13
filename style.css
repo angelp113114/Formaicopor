@@ -23,7 +23,7 @@ header {
     position: sticky;
     z-index: 1000;
     width: 100%;
-
+    
 }
 
 .container {
@@ -225,7 +225,8 @@ nav a:hover {
     display: flex;
     justify-content: center;
     margin: 3rem 0;
-    padding: 0 1rem;
+    padding:  2rem;
+
 }
 
 .mas-productos {
@@ -236,10 +237,10 @@ nav a:hover {
     border-radius: 40px;
     text-align: center;
     transition: all 0.3s ease;
-    max-width: 300px;
+    max-width: 400px;
     width: 100%;
     font-weight: bold;
-    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-size: clamp(0.9rem, 3vw, 1rem);
 }
 
 .mas-productos:hover {
@@ -450,6 +451,13 @@ footer {
     border-left: 6px solid #004AAD;
     border-right: 6px solid #004AAD;
     animation: entrada 0.8s ease;
+    box-shadow:0 -3px 10px  #0084ff; 
+    transition: all 0.5s ease;   
+}
+
+.product-section:hover{
+    transform: translateY(-15px);
+    transition: ease 0.5s;
 }
 
 .product-section h1 {
@@ -464,22 +472,29 @@ footer {
     flex-wrap: wrap;
     align-items: center;
     gap: 2rem;
+    
 }
 
 .product-img {
     flex: 1;
     min-width: 250px;
+    
 }
 
 .product-img img {
-    width: 100%;
-    max-width: 400px;
+    width: 300%;
+    margin-left: 100%;
+    max-width: 700PX;
     height: auto;
-    border-radius: 50%;
+    border-radius: 25px;
     border: 3px solid #004AAD;
     display: block;
     margin: 0 auto;
+      margin-left: 5%;
+      
 }
+
+
 
 .product-text {
     flex: 2;
@@ -489,7 +504,9 @@ footer {
 .product-text p {
     font-size: clamp(0.95rem, 2vw, 1.1rem);
     line-height: 1.6;
+    font-size:30px;
     text-align: justify;
+    margin-left: 20%;
 }
 
 .ver-contacto-countainer {
@@ -539,13 +556,13 @@ footer {
     padding: 2rem;
     border-left: 6px solid #004AAD;
     border-right: 6px solid #004AAD;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.486);
+    transition: transform 0.5s ease;
     animation: entrada 0.8s ease;
 }
 
 .cuadro-somos:hover, .cuadro-mision:hover, .cuadro-vision:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
 .cuadro-somos h1, .cuadro-mision h1, .cuadro-vision h1 {
