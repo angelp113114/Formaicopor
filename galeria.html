@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-      <link rel="icon" href="AZUL OSCNIT.jpg" type="image/x-icon">
-    <title>FORMACOPOR SAS</title>
+    <link rel="icon" href="AZUL OSCNIT.jpg" type="image/x-icon">
+    <title>FORMACOPOR SAS - Galería</title>
+    <style>
+    
+      
+    
+    </style>
 </head>
 <body>
    <header>
@@ -27,29 +32,42 @@
         </div>
     </header>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <div class="galeria-container">
+        <h1 class="titulo-g">GALERÍA DE PROYECTOS</h1>
+        
+        <p class="descripcion-galeria">
+            Explora nuestra galería de proyectos realizados con casetones de icopor. 
+            Cada imagen muestra la calidad, precisión y profesionalismo que nos caracteriza.
+        </p>
+        
+        <!-- FILTROS DE CATEGORÍAS -->
+        <div class="filtros-categorias">
+            <button class="filtro-btn active" data-categoria="todos">Todos</button>
+            <button class="filtro-btn" data-categoria="icopor">ICOPOR</button>
+            <button class="filtro-btn" data-categoria="lona">LONA</button>
+            <button class="filtro-btn" data-categoria="guadua">GUADUA</button>
+        
+        </div>
+        
+        <!-- GALERÍA DE IMÁGENES -->
+        <div class="galeria-grid" id="galeria-grid">
+            <!-- Las imágenes se cargarán dinámicamente con JavaScript -->
+        </div>
+        
+    <div class="modal" id="modal-galeria">
+        <button class="modal-cerrar" id="cerrar-modal">&times;</button>
+        <button class="modal-nav modal-anterior" id="anterior-img">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="modal-nav modal-siguiente" id="siguiente-img">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="modal-contenido">
+            <img class="modal-img" id="modal-imagen" src="" alt="">
+            <div class="modal-info" id="modal-info"></div>
+        </div>
+    </div>
 
     <a href="https://api.whatsapp.com/send?phone=573213899731" class="btn-wasa" target="_blank">
         <i class="fab fa-whatsapp"></i>
@@ -83,15 +101,207 @@
     </footer>
     
     <script>
-        // JavaScript para navegación responsiva
+        // DATOS DE LAS IMÁGENES DE LA GALERÍA
+        const imagenesGaleria = [
+            {
+                src: 'ICOPORINICIO.jpeg',
+                categoria: 'icopor',
+            },
+            
+            {
+                src: 'GUADUAINICIO.png',
+                categoria: 'materiales',
+                titulo: 'Casetones de Guadua',
+                descripcion: 'Solución ecológica y resistente'
+            },
+            {
+                src: 'LONAINICIO.jpeg',
+                categoria: 'materiales',
+                titulo: 'Casetones de Lona',
+                descripcion: 'Versatilidad en aplicaciones'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                categoria: 'icopor',
+                titulo: 'Proyecto Residencial',
+                descripcion: 'Obra realizada en conjunto norte de Bogotá'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                categoria: 'icopor',
+                titulo: 'Edificio Comercial',
+                descripcion: 'Instalación en proyecto corporativo'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                categoria: 'lona',
+                titulo: 'Proceso de Instalación',
+                descripcion: 'Trabajo en equipo para colocación precisa'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                categoria: 'lona',
+                titulo: 'Preparación del Terreno',
+                descripcion: 'Acondicionamiento previo a la instalación'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1503387769-00a112127ca0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                categoria: 'guadua',
+                titulo: 'Acabados Precisos',
+                descripcion: 'guadua que marcan la diferencia'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1507207611509-ec012433ff52?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                categoria: 'guadua',
+                titulo: 'Uniones Perfectas',
+                descripcion: 'Precisión en cada conexión'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                categoria: 'icopor',
+                titulo: 'Proyecto Industrial',
+                descripcion: 'Aplicación en nave industrial'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                categoria: 'lona',
+                titulo: 'Control de Calidad',
+                descripcion: 'Verificación de cada etapa del proceso'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1545062993-0c83447b1d9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                categoria: 'guadua',
+                titulo: 'Terminación Final',
+                descripcion: 'Resultado profesional y estético'
+            }
+        ];
+
+        // FUNCIÓN PARA CARGAR LAS IMÁGENES
+        function cargarGaleria(categoria = 'todos') {
+            const galeriaGrid = document.getElementById('galeria-grid');
+            galeriaGrid.innerHTML = '';
+            
+            const imagenesFiltradas = categoria === 'todos' 
+                ? imagenesGaleria 
+                : imagenesGaleria.filter(img => img.categoria === categoria);
+            
+            imagenesFiltradas.forEach((imagen, index) => {
+                const item = document.createElement('div');
+                item.className = 'item-galeria';
+                item.dataset.categoria = imagen.categoria;
+                item.dataset.index = index;
+                
+                item.innerHTML = `
+                    <img src="${imagen.src}" alt="${imagen.titulo}" class="galeria-img">
+                    <div class="overlay">
+                        <h3>${imagen.titulo}</h3>
+                        <p>${imagen.descripcion}</p>
+                    </div>
+                `;
+                
+                item.addEventListener('click', () => abrirModal(index, categoria));
+                galeriaGrid.appendChild(item);
+            });
+        }
+
+        // VARIABLES PARA EL MODAL
+        let imagenesActuales = [];
+        let indiceActual = 0;
+        let categoriaActual = 'todos';
+
+        // FUNCIÓN PARA ABRIR EL MODAL
+        function abrirModal(indice, categoria) {
+            categoriaActual = categoria;
+            imagenesActuales = categoria === 'todos' 
+                ? imagenesGaleria 
+                : imagenesGaleria.filter(img => img.categoria === categoria);
+            
+            indiceActual = imagenesActuales.findIndex(img => 
+                imagenesGaleria.indexOf(img) === indice);
+            
+            actualizarModal();
+            document.getElementById('modal-galeria').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Evitar scroll
+        }
+
+        // FUNCIÓN PARA ACTUALIZAR EL MODAL
+        function actualizarModal() {
+            const imagen = imagenesActuales[indiceActual];
+            const modalImagen = document.getElementById('modal-imagen');
+            const modalInfo = document.getElementById('modal-info');
+            
+            modalImagen.src = imagen.src;
+            modalImagen.alt = imagen.titulo;
+            modalInfo.textContent = `${imagen.titulo} - ${imagen.descripcion}`;
+        }
+
+        // FUNCIÓN PARA CERRAR EL MODAL
+        function cerrarModal() {
+            document.getElementById('modal-galeria').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+        }
+
+        // FUNCIÓN PARA CAMBIAR DE IMAGEN
+        function cambiarImagen(direccion) {
+            if (direccion === 'siguiente') {
+                indiceActual = (indiceActual + 1) % imagenesActuales.length;
+            } else {
+                indiceActual = (indiceActual - 1 + imagenesActuales.length) % imagenesActuales.length;
+            }
+            actualizarModal();
+        }
+
+        // INICIALIZACIÓN DE LA GALERÍA
         document.addEventListener('DOMContentLoaded', function() {
-            // Ajustar navegación en pantallas pequeñas
+            // Cargar galería inicial
+            cargarGaleria();
+            
+            // Configurar filtros
+            const filtros = document.querySelectorAll('.filtro-btn');
+            filtros.forEach(filtro => {
+                filtro.addEventListener('click', function() {
+                    // Remover clase active de todos
+                    filtros.forEach(f => f.classList.remove('active'));
+                    // Agregar clase active al filtro clickeado
+                    this.classList.add('active');
+                    
+                    const categoria = this.dataset.categoria;
+                    cargarGaleria(categoria);
+                });
+            });
+            
+            // Configurar modal
+            const modal = document.getElementById('modal-galeria');
+            const cerrarBtn = document.getElementById('cerrar-modal');
+            const anteriorBtn = document.getElementById('anterior-img');
+            const siguienteBtn = document.getElementById('siguiente-img');
+            
+            cerrarBtn.addEventListener('click', cerrarModal);
+            anteriorBtn.addEventListener('click', () => cambiarImagen('anterior'));
+            siguienteBtn.addEventListener('click', () => cambiarImagen('siguiente'));
+            
+            // Cerrar modal al hacer clic fuera
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    cerrarModal();
+                }
+            });
+            
+            // Navegación con teclado
+            document.addEventListener('keydown', function(e) {
+                if (modal.style.display === 'flex') {
+                    if (e.key === 'Escape') cerrarModal();
+                    if (e.key === 'ArrowLeft') cambiarImagen('anterior');
+                    if (e.key === 'ArrowRight') cambiarImagen('siguiente');
+                }
+            });
+            
+            // Ajustar navegación responsiva
             function adjustNavigation() {
                 const nav = document.querySelector('nav ul');
                 const navLinks = document.querySelectorAll('nav a');
                 
                 if (window.innerWidth < 600) {
-                    // Para móviles: menú vertical
                     if (nav) {
                         nav.style.flexDirection = 'column';
                         nav.style.width = '100%';
@@ -102,7 +312,6 @@
                         link.style.textAlign = 'center';
                     });
                 } else {
-                    // Para escritorio: menú horizontal
                     if (nav) {
                         nav.style.flexDirection = 'row';
                         nav.style.width = 'auto';
@@ -114,7 +323,6 @@
                 }
             }
             
-            // Ejecutar al cargar y al redimensionar
             adjustNavigation();
             window.addEventListener('resize', adjustNavigation);
         });

@@ -112,6 +112,8 @@ nav a:hover {
     padding: 0 1rem;
     font-size: clamp(1.2rem, 3vw, 1.5rem);
     margin-top: 8%;
+      transition: transform 0.5s ease;
+    animation: entrada 0.8s ease;
 ;
 
 }
@@ -122,13 +124,7 @@ nav a:hover {
     color: #333;
     font-size:smaller;
 }
-.logo_inicio {
-    display: none;
-}
 
-.foto_index {
-    display: none;
-}
 .container1 {
     width: 100%;
     display: flex;
@@ -167,6 +163,8 @@ nav a:hover {
     overflow: hidden;
     transition: transform 0.3s ease;
     box-shadow: 0 5px 20px rgb(0, 0, 0);
+      transition: transform 0.5s ease;
+    animation: entrada 0.8s ease;
 }
 
 
@@ -232,6 +230,8 @@ nav a:hover {
     width: 100%;
     font-weight: bold;
     font-size: clamp(0.9rem, 3vw, 1rem);
+      transition: transform 0.5s ease;
+    animation: entrada 0.8s ease;
 }
 
 .mas-productos:hover {
@@ -261,23 +261,70 @@ nav a:hover {
 }
 
 .ventaja1, .ventaja2, .ventaja3, .ventaja4, .ventaja5 {
-    background-color: #eeeeee;
-    color: #004AAD;
-    border: 2px solid #0084ff;
-    padding: 1.5rem;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease;
+       background: white;
+       color: #004AAD;
+        border-radius: 12px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.26);
+        transition: transform 0.3s ease;
+         border: 2px solid #e0e0e0;
 }
 
 .ventaja1:hover, .ventaja2:hover, .ventaja3:hover, .ventaja4:hover, .ventaja5:hover {
-    transform: translateY(-5px);
+   
+     transform: translateY(-5px);
+        border-color: #004AAD;
 }
 
 .ventaja1 h2, .ventaja2 h2, .ventaja3 h2, .ventaja4 h2, .ventaja5 h2 {
     font-size: clamp(1.1rem, 2.5vw, 1.3rem);
     margin-bottom: 1rem;
 }
+
+
+/* SECCIÓN DE PROCESOS */
+        .proceso-titulo {
+            text-align: center;
+            color: #004AAD;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            margin: 4rem 0 2rem;
+        }
+        
+        .proceso-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+            padding: 0 1rem;
+        }
+        
+        .proceso-item {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.26);
+            transition: transform 0.3s ease;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .proceso-item:hover {
+            transform: translateY(-5px);
+            border-color: #004AAD;
+        }
+        
+        .proceso-icono {
+            font-size: 2.5rem;
+            color: #004AAD;
+            margin-bottom: 1rem;
+        }
+        
+        .proceso-item h3 {
+            color: #004AAD;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }  
 
 /* FORMULARIO */
 form {
@@ -288,6 +335,8 @@ form {
     margin: 3rem auto;
     max-width: 700px;
     width: calc(100% - 2rem);
+      transition: transform 0.5s ease;
+    animation: entrada 0.8s ease;
 }
 
 form h1 {
@@ -713,6 +762,199 @@ footer {
             border-radius: 10px;
             margin-top: 1.5rem;
         }
+
+        /*PAGINA GALERIA*/
+        
+
+         .galeria-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .titulo-g {
+            margin: -2rem 0 2rem;
+    color: #004AAD;
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    padding: 0 1rem;
+    font-size: clamp(2rem, 3vw, 1.5rem);
+    margin-top: 8%;
+      transition: transform 0.5s ease;
+    animation: entrada 0.8s ease;
+;
+        }
+        
+    
+        .descripcion-galeria {
+            text-align: center;
+            color: #333;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+        
+        /* FILTROS DE CATEGORÍAS */
+        .filtros-categorias {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            padding: 0 1rem;
+        }
+        
+        .filtro-btn {
+            background-color: #eeeeee;
+            color: #004AAD;
+            border: 2px solid #004AAD;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .filtro-btn:hover,
+        .filtro-btn.active {
+            background-color: #004AAD;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* GALERÍA DE IMÁGENES */
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+            padding: 0 1rem;
+            
+        }
+        
+        .item-galeria {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            aspect-ratio: 4/3;
+            background-color: #f5f5f5;
+             transition: transform 0.5s ease;
+            animation: entrada 0.8s ease;
+        }
+        
+        .item-galeria:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 74, 173, 0.2);
+        }
+        
+        .galeria-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .item-galeria:hover .galeria-img {
+            transform: scale(1.05);
+        }
+                
+        /* MODAL PARA VISUALIZACIÓN DE IMÁGENES */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .modal-contenido {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .modal-img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        
+        .modal-cerrar {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: color 0.3s ease;
+        }
+        
+        .modal-cerrar:hover {
+            color: #eebe2f;
+        }
+        
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: #eebe2f;
+        }
+        
+        .modal-anterior {
+            left: 20px;
+        }
+        
+        .modal-siguiente {
+            right: 20px;
+        }
+        
+        .modal-info {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        
+
+
+
         
    
 
