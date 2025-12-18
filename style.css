@@ -8,7 +8,7 @@
 }
 
 body {
-    background-image: url(Fondo_bac.avif);
+    background-image: url(img/Fondo_bac.avif);
     color: #333;
     line-height: 1.6;
     overflow-x: hidden;
@@ -174,15 +174,15 @@ nav a:hover {
 
 
 .caseton-icopor1 {
-    background-image: url('ICOPORINICIO.jpeg');
+    background-image: url('img/ICOPORINICIO.jpeg');
 }
 
 .caseton-guadua1 {
-    background-image: url('GUADUAINICIO.png');
+    background-image: url('img/GUADUAINICIO.png');
 }
 
 .caseton-lona1 {
-    background-image: url('LONAINICIO.jpeg');
+    background-image: url('img/LONAINICIO.jpeg');
 }
 
 .product-title-ci, 
