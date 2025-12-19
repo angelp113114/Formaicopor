@@ -3,22 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
       <link rel="icon" href="img/AZUL OSCNIT.jpg" type="image/x-icon">
     <title>FORMACOPOR SAS - Quiénes Somos</title>
 </head>
 <body>
-   <header>
+      <header>
         <div class="container">
             <div class="top-bar">
-                <img src="img/LOGOAZUL.png" alt="logo azul y dorado" class="logo1">
+                <img src="img/logo-banner.png" alt="logo azul y dorado" class="logo1">
                 
-                <nav>
+                <!-- Botón menú hamburguesa para móviles -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- Navegación principal -->
+                <nav id="mainNav">
                     <ul>
-                      <li><a href="index.html"><h2>INICIO</h2></a></li>
-                        <li><a href="productos.html"><h2>PRODUCTOS</h2></a></li>
-                         <li><a href="galeria.html"><h2>GALERIA</h2></a></li>
+                        <li><a href="index.html"><h2>INICIO</h2></a></li>
+                        <li><a href="productos.html" ><h2>PRODUCTOS</h2></a></li>
+                        <li><a href="galeria.html" ><h2>GALERIA</h2></a></li>
                         <li><a href="quienes_somos.html" class="selec_qs"><h2>QUIENES SOMOS</h2></a></li>
                         <li><a href="contacto_sedes.html"><h2>CONTACTO Y SEDES</h2></a></li>
                     </ul>
@@ -93,36 +99,94 @@ al desarrollo sostenible y la mejora de calidad de vida de nuestra comunidad</p>
         </div>
     </footer>
     
-    <script>
+   <script>
+        // JavaScript para menú desplegable en móviles
         document.addEventListener('DOMContentLoaded', function() {
-            function adjustNavigation() {
-                const nav = document.querySelector('nav ul');
-                const navLinks = document.querySelectorAll('nav a');
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+            
+            // Verificar que los elementos existen
+            if (!menuToggle || !mainNav) {
+                console.error('No se encontraron los elementos del menú');
+                return;
+            }
+            
+            // Función para alternar el menú
+            function toggleMenu() {
+                mainNav.classList.toggle('active');
+                menuToggle.classList.toggle('active');
                 
-                if (window.innerWidth < 600) {
-                    if (nav) {
-                        nav.style.flexDirection = 'column';
-                        nav.style.width = '100%';
-                    }
-                    navLinks.forEach(link => {
-                        link.style.display = 'block';
-                        link.style.padding = '1rem';
-                        link.style.textAlign = 'center';
-                    });
+                // Cambiar ícono
+                const icon = menuToggle.querySelector('i');
+                if (mainNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                    // Evitar scroll en el body cuando el menú está abierto
+                    document.body.style.overflow = 'hidden';
                 } else {
-                    if (nav) {
-                        nav.style.flexDirection = 'row';
-                        nav.style.width = 'auto';
-                    }
-                    navLinks.forEach(link => {
-                        link.style.display = 'inline-block';
-                        link.style.padding = '0.5rem 0.8rem';
-                    });
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                    // Restaurar scroll
+                    document.body.style.overflow = '';
                 }
             }
             
-            adjustNavigation();
-            window.addEventListener('resize', adjustNavigation);
+            // Evento para el botón de menú
+            menuToggle.addEventListener('click', toggleMenu);
+            
+            // Cerrar menú al hacer clic en un enlace (solo en móviles)
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        mainNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                        const icon = menuToggle.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                            document.body.style.overflow = '';
+                        }
+                    }
+                });
+            });
+            
+            // Ajustar menú según tamaño de pantalla
+            function adjustMenu() {
+                if (window.innerWidth > 768) {
+                    // En escritorio: ocultar menú móvil
+                    mainNav.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                    document.body.style.overflow = '';
+                }
+            }
+            
+            // Ajustar al cargar y al redimensionar
+            adjustMenu();
+            window.addEventListener('resize', adjustMenu);
+            
+            // Cerrar menú al hacer clic fuera (opcional)
+            document.addEventListener('click', function(event) {
+                if (window.innerWidth <= 768 && 
+                    mainNav.classList.contains('active') && 
+                    !mainNav.contains(event.target) && 
+                    !menuToggle.contains(event.target)) {
+                    
+                    mainNav.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
         });
     </script>
 </body>

@@ -10,29 +10,52 @@
 </head>
 <body>
    <header>
-        <div class="container">
-            <div class="top-bar">
-                <img src="img/LOGOAZUL.png" alt="logo azul y dorado" class="logo1" >
-                
-                <nav>
-                    <ul>
-                        <li><a href="index.html" class="selec_ini"><h2>INICIO</h2></a></li>
-                        <li><a href="productos.html"><h2>PRODUCTOS</h2></a></li>
-                        <li><a href="galeria.html"><h2>GALERIA</h2></a></li>
-                        <li><a href="quienes_somos.html"><h2>QUIENES SOMOS</h2></a></li>
-                        <li><a href="contacto_sedes.html"><h2>CONTACTO Y SEDES</h2></a></li>
-                    </ul>
-                </nav>
+        <div class="header-banner">
+            <!-- Banner como imagen de fondo -->
+            <div class="banner-background">
+                <img src="img/banner imagen.jpeg" alt="Banner de inicio" class="banner-img">
+            </div>
+            
+            <!-- Navegación fija con menú hamburguesa para móviles -->
+            <div class="nav-overlay">
+                <div class="nav-container">
+                    <!-- Logo -->
+                    <img src="img/logo-banner.png" alt="logo azul y dorado" class="logo1">
+                    
+                    <!-- Menú hamburguesa para móviles -->
+                    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <!-- Navegación principal -->
+                    <nav id="mainNav">
+                        <ul class="nav-menu">
+                            <li><a href="index.html" class="selec_ini"><h2>INICIO</h2></a></li>
+                            <li><a href="productos.html"><h2>PRODUCTOS</h2></a></li>
+                            <li><a href="galeria.html"><h2>GALERIA</h2></a></li>
+                            <li><a href="quienes_somos.html"><h2>QUIENES SOMOS</h2></a></li>
+                            <li><a href="contacto_sedes.html"><h2>CONTACTO Y SEDES</h2></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            
+            <!-- Contenedor principal que mantiene la estructura original -->
+            <div class="content-wrapper">
+                <div class="main-content">
+                    <!-- Título en la posición original -->
+                    <div class="titutloF">
+                        <h1>FORMAICOPOR SAS</h1>
+                        <h2>SERVICIO CON CALIDAD</h2>
+                        <div class="dibujo-icopor">
+                            <img src="img/dibujo-icopor.png" alt="dc">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
-    <div class="titutloF">
-        <h1>FORMAICOPOR SAS</h1>
-        <h2>SERVICIO CON CALIDAD</h2>
-          <div  class="dibujo-icopor">
-            <img src="img/dibujo-icopor.png" alt="dc">
-        </div>
-    </div>
+    
   
 
     <section class="products container">
@@ -180,6 +203,61 @@
     </footer>
     
     <script>
+        // JavaScript para menú desplegable en móviles
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            // Función para alternar el menú
+            function toggleMenu() {
+                mainNav.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+                
+                // Cambiar ícono
+                const icon = menuToggle.querySelector('i');
+                if (mainNav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+            
+            // Evento para el botón de menú
+            menuToggle.addEventListener('click', toggleMenu);
+            
+            // Cerrar menú al hacer clic en un enlace (solo en móviles)
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        mainNav.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                        const icon = menuToggle.querySelector('i');
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+            
+            // Ajustar menú según tamaño de pantalla
+            function adjustMenu() {
+                if (window.innerWidth > 768) {
+                    // En escritorio: mostrar menú normal
+                    mainNav.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    const icon = menuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+            
+            // Ajustar al cargar y al redimensionar
+            adjustMenu();
+            window.addEventListener('resize', adjustMenu);
+        });
         // JavaScript para navegación responsiva
         document.addEventListener('DOMContentLoaded', function() {
             // Ajustar navegación en pantallas pequeñas
