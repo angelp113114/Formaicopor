@@ -200,6 +200,9 @@ footer {
     font-weight: normal;
     font-size: clamp(1.5rem, 1.8vw, 1rem);
 }
+.eslogan-footer h4{
+    color: white;
+}
 
 /* BOTÓN WHATSAPP */
 .btn-wasa {
