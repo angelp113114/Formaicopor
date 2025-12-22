@@ -768,6 +768,14 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .btn-wasa {
+        width: 80px; /* Más grande en móviles */
+        height: 80px; /* Más grande en móviles */
+        bottom: 2rem; /* Un poco más alto */
+        right: 2rem; /* Un poco más alejado del borde */
+        font-size: 3rem; /* Ícono más grande */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+    }
     header{
         top: 0;
     }
@@ -864,6 +872,13 @@ footer {
 
 /* Media Query para móviles pequeños */
 @media (max-width: 480px) {
+     .btn-wasa {
+        width: 80px; /* Un poco más pequeño que en tablets */
+        height: 80px;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        font-size: 3rem;
+    }
     .ventajas-grid,
     .contacto-grid,
     .mision-vision-container {
